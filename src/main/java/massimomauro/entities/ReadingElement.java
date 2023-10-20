@@ -13,6 +13,10 @@ public abstract class ReadingElement {
     private String title;
     private int year;
     private int pageNumber;
+    @OneToOne(mappedBy = "elementLoan")
+    private Loan elementLoan;
+
+
 
     public ReadingElement(){};
     public ReadingElement( String title, int pageNumber, int year) {
