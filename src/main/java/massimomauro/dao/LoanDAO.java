@@ -29,7 +29,7 @@ public class LoanDAO {
         System.out.println("Prestito eseguito");
     }
 
-    public List<Loan> findElementsByUserId (long userId){
+    public List<Loan> findLoansByUserId (long userId){
         //SELECT * FROM catalog WHERE year=2135;
         TypedQuery<Loan> getAllQuery = em.createQuery("SELECT e FROM Loan e WHERE e.user.id = :user_id", Loan.class);
         getAllQuery.setParameter("user_id", userId);

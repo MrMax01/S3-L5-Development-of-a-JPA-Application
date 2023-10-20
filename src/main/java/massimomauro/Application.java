@@ -39,7 +39,7 @@ public class Application {
         /*Prestiti*/
         //ld.save(new Loan(ud.findElementById(24), ed.findElementById(8)));
 
-        //ld.findElementsByUserId(24).forEach(e-> System.out.println(e));
+        //ld.findLoansByUserId(24).forEach(e-> System.out.println(e));
         //ld.findExpiredLoan().forEach(System.out::println);
 
 
