@@ -11,6 +11,7 @@ public class ReadingElementDAO {
     private final EntityManager em;
 
     public ReadingElementDAO(EntityManager em) {
+
         this.em = em;
     }
 
@@ -29,7 +30,9 @@ public class ReadingElementDAO {
 
     //ricerca per id
     public ReadingElement findElementById(long id) {
-        return em.find(ReadingElement.class, id);
+        if(em.find(ReadingElement.class, id) == null ) throw new RuntimeException("id reading element non esistente");
+        else return em.find(ReadingElement.class, id
+        );
     }
 
     public List<ReadingElement> findElementsByYear (int year){
