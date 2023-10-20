@@ -42,6 +42,11 @@ public class LoanDAO {
         TypedQuery<Loan> getAllQuery = em.createQuery("SELECT e FROM Loan e WHERE e.endLoan < e.hasReturned", Loan.class);
         return getAllQuery.getResultList();
     }
+    public List<Loan> findLoans() {
+
+        TypedQuery<Loan> getAllQuery = em.createQuery("SELECT d FROM Loan d", Loan.class); // Query JPQL
+        return getAllQuery.getResultList();
+    }
 
 
 }

@@ -6,6 +6,8 @@ import massimomauro.entities.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
+import java.util.List;
 
 public class UserDAO {
     private final EntityManager em;
@@ -30,5 +32,10 @@ public class UserDAO {
 
         if(em.find(User.class, id)== null) throw  new RuntimeException("l'id utente non esiste");
         else return em.find(User.class, id);
+    }
+    public List<User> findUsers() {
+
+        TypedQuery<User> getAllQuery = em.createQuery("SELECT d FROM User d", User.class); // Query JPQL
+        return getAllQuery.getResultList();
     }
 }
