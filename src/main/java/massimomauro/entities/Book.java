@@ -1,11 +1,16 @@
 package massimomauro.entities;
 
+import javax.persistence.*;
+
+@Entity
+@DiscriminatorValue("Book")
 public class Book extends ReadingElement {
     private String author;
     private String type;
 
-    public Book(int ISBN, String title, int pageNumber, int year, String author, String type) {
-        super(ISBN, title, pageNumber, year);
+    public Book(){};
+    public Book( String title, int pageNumber, int year, String author, String type) {
+        super(title, pageNumber, year);
         this.author = author;
         this.type = type;
     }

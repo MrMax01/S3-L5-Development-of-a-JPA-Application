@@ -2,11 +2,16 @@ package massimomauro.entities;
 
 import massimomauro.data.Periodicity;
 
+import javax.persistence.*;
+
+@Entity
+@DiscriminatorValue("Magazine")
 public class Magazine extends ReadingElement {
     Periodicity periodicity;
 
-    public Magazine(int ISBN, String title, int pageNumber, int year, Periodicity periodicity) {
-        super(ISBN, title, pageNumber, year);
+    public Magazine(){};
+    public Magazine( String title, int pageNumber, int year, Periodicity periodicity) {
+        super( title, pageNumber, year);
         this.periodicity = periodicity;
     }
 

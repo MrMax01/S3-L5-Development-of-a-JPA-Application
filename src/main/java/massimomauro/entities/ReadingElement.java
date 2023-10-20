@@ -1,22 +1,28 @@
 package massimomauro.entities;
 
+import javax.persistence.*;
 import java.time.LocalDate;
-
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Table(name = "catalog")
+@DiscriminatorColumn(name = "element_type")
 public abstract class ReadingElement {
-    private int ISBN;
+    @Id
+    @GeneratedValue
+    private long ISBN;
     private String title;
     private int year;
     private int pageNumber;
 
-    public ReadingElement(int ISBN, String title, int pageNumber, int year) {
+    public ReadingElement(){};
+    public ReadingElement( String title, int pageNumber, int year) {
 
-        this.ISBN = ISBN;
         this.title = title;
         this.pageNumber = pageNumber;
         this.year = year;
     }
 
-    public int getISBN() {
+    public long getISBN() {
         return ISBN;
     }
 
