@@ -41,7 +41,7 @@ public class Application {
 
         //ld.findLoansByUserId(24).forEach(e-> System.out.println(e));
         //ld.findExpiredLoan().forEach(System.out::println);
-
+       //ed.findCatalog().forEach(System.out::println);
 
 
 

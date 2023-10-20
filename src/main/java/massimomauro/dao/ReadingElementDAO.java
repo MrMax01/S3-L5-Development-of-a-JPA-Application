@@ -77,4 +77,9 @@ public class ReadingElementDAO {
         }
 
     }
+    public List<ReadingElement> findCatalog() {
+        
+        TypedQuery<ReadingElement> getAllQuery = em.createQuery("SELECT d FROM ReadingElement d", ReadingElement.class); // Query JPQL
+        return getAllQuery.getResultList();
+    }
 }
