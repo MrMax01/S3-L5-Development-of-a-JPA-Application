@@ -2,6 +2,7 @@ package massimomauro.entities;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Random;
 
 @Entity
 @Table(name="loans")
@@ -10,7 +11,7 @@ public class Loan {
     @GeneratedValue
     private long id;
 
-    @OneToOne(optional = false)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "user_id")
     private User user;
 
@@ -30,6 +31,7 @@ public class Loan {
         this.elementLoan = elementLoan;
         setStartLoan();
         setEndLoan();
+        setHasReturned();
     }
 
     public User getUser() {
@@ -52,8 +54,10 @@ public class Loan {
         return hasReturned;
     }
 
-    public void setHasReturned(LocalDate hasReturned) {
-        this.hasReturned = hasReturned;
+    public void setHasReturned() {
+
+        Random rdm= new Random();
+        this.hasReturned = this.startLoan.plusDays(rdm.nextInt(1,60));
     }
 
     public LocalDate getStartLoan() {

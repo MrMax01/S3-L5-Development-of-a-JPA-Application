@@ -34,11 +34,14 @@ public class Application {
         */
         /*salvo utenti*/
         //ud.save(new User("Massimo", "mauro", LocalDate.of(1995,03,11)));
-        //ud.save(new User("Ran", "Dom", LocalDate.of(200,05,16)));
+       // ud.save(new User("Ran", "Dom", LocalDate.of(200,05,16)));
 
         /*Prestiti*/
-        //ld.save(new Loan(ud.findElementById(2), ed.findElementById(6)));
-        //System.out.println(ld.findElementsByUserId(19));
+        //ld.save(new Loan(ud.findElementById(24), ed.findElementById(8)));
+
+        //ld.findElementsByUserId(24).forEach(e-> System.out.println(e));
+        //ld.findExpiredLoan().forEach(System.out::println);
+
 
 
 

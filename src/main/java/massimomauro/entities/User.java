@@ -2,6 +2,7 @@ package massimomauro.entities;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name="users")
@@ -12,8 +13,8 @@ public class User {
     private String name;
     private String surname;
     private LocalDate birth_day;
-    @OneToOne(mappedBy = "user")
-    private Loan loan;
+    @OneToMany(mappedBy = "user")
+    private List<Loan >loan;
 
     public User(){};
 

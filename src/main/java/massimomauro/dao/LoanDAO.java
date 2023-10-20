@@ -33,7 +33,13 @@ public class LoanDAO {
         //SELECT * FROM catalog WHERE year=2135;
         TypedQuery<Loan> getAllQuery = em.createQuery("SELECT e FROM Loan e WHERE e.user.id = :user_id", Loan.class);
         getAllQuery.setParameter("user_id", userId);
+        if(getAllQuery.getResultList().isEmpty()) throw new RuntimeException("l'utente selezionato non esiste o non ha niente in prestito");
+        else return getAllQuery.getResultList();
+    }
 
+    //SELECT * FROM your_table WHERE date_column1 < date_column2
+    public List <Loan> findExpiredLoan (){
+        TypedQuery<Loan> getAllQuery = em.createQuery("SELECT e FROM Loan e WHERE e.endLoan < e.hasReturned", Loan.class);
         return getAllQuery.getResultList();
     }
 }
