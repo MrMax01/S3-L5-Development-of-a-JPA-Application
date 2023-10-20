@@ -1,9 +1,13 @@
 package massimomauro.dao;
 
 import massimomauro.entities.Loan;
+import massimomauro.entities.ReadingElement;
+import massimomauro.entities.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
+import java.util.List;
 
 public class LoanDAO {
     private final EntityManager em;
@@ -23,5 +27,13 @@ public class LoanDAO {
         // 3. Termino la transazione col salvataggio effettivo di una nuova riga nella tabella students
         transaction.commit();
         System.out.println("Prestito eseguito");
+    }
+
+    public List<Loan> findElementsByUserId (long userId){
+        //SELECT * FROM catalog WHERE year=2135;
+        TypedQuery<Loan> getAllQuery = em.createQuery("SELECT e FROM Loan e WHERE e.user.id = :user_id", Loan.class);
+        getAllQuery.setParameter("user_id", userId);
+
+        return getAllQuery.getResultList();
     }
 }

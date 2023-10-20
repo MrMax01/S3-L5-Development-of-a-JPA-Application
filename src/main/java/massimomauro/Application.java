@@ -38,6 +38,7 @@ public class Application {
 
         /*Prestiti*/
         //ld.save(new Loan(ud.findElementById(2), ed.findElementById(6)));
+        //System.out.println(ld.findElementsByUserId(19));
 
 
 
